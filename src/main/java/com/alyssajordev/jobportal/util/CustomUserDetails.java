@@ -13,16 +13,16 @@ import com.alyssajordev.jobportal.entity.UsersType;
 
 public class CustomUserDetails implements UserDetails {
 
-    private final Users users;
+    private final Users user;
 
 
-    public CustomUserDetails(Users users) {
-        this.users = users;
+    public CustomUserDetails(Users user) {
+        this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        UsersType usersType = users.getUserTypeId();
+        UsersType usersType = user.getUserTypeId();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(usersType.getUserTypeName()));
         return authorities;
@@ -30,12 +30,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return users.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return users.getEmail();
+        return user.getEmail();
     }
 
 }
