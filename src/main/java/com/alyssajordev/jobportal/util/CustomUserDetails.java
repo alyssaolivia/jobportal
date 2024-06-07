@@ -38,4 +38,21 @@ public class CustomUserDetails implements UserDetails {
         return user.getEmail();
     }
 
+    public boolean isAccountNotExpired(){
+        return true;
+    }
+
+    public boolean isAccountNonLocked(){
+        return true;
+    }
+
+    public boolean isCredentialsNonExpired(){
+        return true;
+    }
+
+    public boolean isEnabled(){
+        return true;
+    }
+
+
 }
