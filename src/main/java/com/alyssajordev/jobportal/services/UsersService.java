@@ -1,6 +1,7 @@
 package com.alyssajordev.jobportal.services;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -66,5 +67,9 @@ public class UsersService {
             }
         }
         return null;
+    }
+
+    public Optional<Users> getUserByEmail(String email){
+        return usersRepository.findByEmail(email);
     }
 }
